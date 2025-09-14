@@ -47,12 +47,10 @@ jobs:
           echo "skip=$SKIP" >> "$GITHUB_OUTPUT"
 
 
-
-
   pipeline:
     needs: [ precheck ]
     if: ${{ github.actor != 'github-actions[bot]' && !(github.event_name == 'push' && github.ref_name == 'non-prod' && needs.precheck.outputs.skip == 'true') }}
-    uses: ${{ github.repository_owner }}/Local-Uipath-CICD/.github/workflows/pipeline.yml@main
+    uses: dhillon-shawn/Local-Uipath-CICD/.github/workflows/pipeline.yml@main
     secrets: inherit
     with:
       target_env: ${{
