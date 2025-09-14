@@ -45,10 +45,6 @@ jobs:
             echo "Detected $total open PR(s) from non-prod → main/master; skip=$SKIP"
           fi
           echo "skip=$SKIP" >> "$GITHUB_OUTPUT"
-
-
-
-          
   pipeline:
     needs: [ precheck ]
     if: ${{ github.actor != 'github-actions[bot]' && !(github.event_name == 'push' && github.ref_name == 'non-prod' && needs.precheck.outputs.skip == 'true') }}
