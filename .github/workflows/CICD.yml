@@ -16,8 +16,18 @@ concurrency:
 permissions:
   write-all
 
+# Global: decide once whether to skip CICD
+env:
+  SKIP_CICD: >-
+    ${{ (github.event_name == 'push' &&
+          contains(github.event.head_commit.message, '[skip cicd]')) ||
+        (github.event_name == 'pull_request' &&
+          (contains(github.event.pull_request.title, '[skip cicd]') ||
+           contains(github.event.pull_request.body,  '[skip cicd]'))) }}
+
 jobs:
   precheck:
+    if: ${{ env.SKIP_CICD != 'true' }}
     runs-on: ubuntu-latest
     outputs:
       skip: ${{ steps.check.outputs.skip }}
@@ -46,10 +56,11 @@ jobs:
           fi
           echo "skip=$SKIP" >> "$GITHUB_OUTPUT"
 
-
   pipeline:
     needs: [ precheck ]
-    if: ${{ github.actor != 'github-actions[bot]' && !(github.event_name == 'push' && github.ref_name == 'non-prod' && needs.precheck.outputs.skip == 'true') }}
+    if: >-
+      ${{ env.SKIP_CICD != 'true' &&
+          !(github.event_name == 'push' && github.ref_name == 'non-prod' && needs.precheck.outputs.skip == 'true') }}
     uses: dhillon-shawn/Local-Uipath-CICD/.github/workflows/pipeline.yml@main
     secrets: inherit
     with:
