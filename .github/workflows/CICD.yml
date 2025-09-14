@@ -53,13 +53,10 @@ jobs:
     uses: dhillon-shawn/Local-Uipath-CICD/.github/workflows/pipeline.yml@main
     secrets: inherit
     with:
-      target_env: ${{
-        github.event_name == 'push' && (
-          github.ref_name == 'non-prod' && 'dev' ||
-          (github.ref_name == 'main' || github.ref_name == 'master') && 'prod'
-        ) ||
-        github.event_name == 'pull_request' && (
-          startsWith(github.head_ref, 'hotfix/') && 'hotfix' || 'test'
-        )
-      }}
+      target_env: >-
+        ${{ (github.event_name == 'push' &&
+              fromJson('{"non-prod":"dev","main":"prod","master":"prod"}')[github.ref_name]
+            ) || (github.event_name == 'pull_request' &&
+              (startsWith(github.head_ref, 'hotfix/') && 'hotfix' || 'test')
+            ) }}
       source_ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
