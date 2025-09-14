@@ -1,0 +1,110 @@
+name: Bug Template
+description: File a bug report.
+title: "[Bug]: "
+labels: ["bug"]
+projects: ["ca-dmv/16" ]
+type: "Bug"
+assignees: 
+  - $default-assignee
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Bug report - fill out what's relevant
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How bad is it?
+      options:
+        - Critical (System down/unusable)
+        - High (Major feature broken)
+        - Medium (Minor feature issue)
+        - Low (Cosmetic/Nice to have)
+      default: 2
+      
+
+  - type: textarea
+    id: details
+    attributes:
+      label: 'What happened?'
+      description: Quick description of the bug
+      placeholder: |
+        Brief description of what went wrong...
+        
+        Steps to reproduce (if needed):
+        1. 
+        2. 
+        
+        Expected vs actual behavior...
+
+  - type: textarea
+    id: screenshots_files
+    attributes:
+      label: Screenshots/Files
+      description: |
+        **Drag/Drop/Attach images, videos, logs, or any files here** 📎
+        
+        Just drag files directly into this box or click to browse!
+      placeholder: |
+        Drop your files here or click to browse...
+        
+        • Screenshots of the issue
+        • Error logs
+        • Network traces  
+        • Screen recordings
+        
+  - type: checkboxes
+    id: environment
+    attributes:
+      label: Where did this happen?
+      options:
+        - label: Production
+        - label: Testing
+        - label: Development
+        - label: Local
+        - label: N/A
+        
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: When should this be fixed?
+      options:
+        - ASAP
+        - This week
+        - This month
+        - N/A
+      default: 3
+      
+  - type: textarea
+    id: logs_errors
+    attributes:
+      label: Logs/Errors (if applicable/releavant)
+      description: Console output, error messages, stack traces
+      render: shell
+      placeholder: Paste any error messages or log output here. Will be rendered through shell.
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      description: Anything else worth mentioning
+      placeholder: |
+        • Workarounds you found
+        • Related issues
+        • Impact on users
+        • Timeline notes
+        • Thoughts
+
+  - type: checkboxes
+    id: status
+    attributes:
+      label: What's your plan?
+      options:
+        - label: I'm investigating this
+        - label: I'm working on a fix
+        - label: I need help with this
+        - label: This is blocked by something else
+        - label: Documenting for later

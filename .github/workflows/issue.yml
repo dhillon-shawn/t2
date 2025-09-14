@@ -1,0 +1,30 @@
+name: Auto Assign Issue
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+    auto-assign:
+        runs-on: ubuntu-latest
+        permissions:
+            issues: write
+        steps:
+            - name: Check if issue has assignees
+              id: check
+              run: |
+                if [ "${{ toJson(github.event.issue.assignees) }}" = "[]" ]; then
+                  echo "Issue has no assignees."
+                  echo "has_assignees=false" >> $GITHUB_OUTPUT
+                else
+                  echo "Issue has assignees."
+                  echo "has_assignees=true" >> $GITHUB_OUTPUT
+                fi
+
+                
+            - name: 'Auto-assign issue'
+              uses: pozil/auto-assign-issue@v2
+              if: steps.check.outputs.has_assignees == 'false'
+              with:
+                  assignees: '${{ github.event.issue.user.login }}'
+                  numOfAssignee: 1

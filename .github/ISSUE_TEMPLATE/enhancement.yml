@@ -1,0 +1,82 @@
+name: Enhancement Template
+description: Use this for improvements, refinements, or optimization work
+title: "[Enhancement]: "
+labels: ["enhancement"]
+projects: ["ca-dmv/16" ]
+type: "Feature"
+assignees:
+  - $default-assignee
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to track enhancement work such as refinements, optimizations, or improvements.
+
+      
+  - type: dropdown
+    id: enhancement_type
+    attributes:
+      label: Type of Enhancement
+      description: What kind of improvement is this?
+      options:
+        - New Feature
+        - Performance Optimization
+        - Security
+        - Accessibility
+        - Documentation
+        - Refactor
+        - Other
+      default: 1
+
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Brief Summary
+      description: What are you improving and why?
+      placeholder: |
+        • What is being enhanced?
+        • Who requested this?
+        • Expected outcome
+        
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Attachments
+      description: Upload designs, screenshots, or supporting files 📎
+      placeholder: Drop your files here.
+      
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: When should this be fixed?
+      options:
+        - ASAP
+        - This week
+        - This month
+        - N/A
+      default: 3
+      
+  - type: checkboxes
+    id: status
+    attributes:
+      label: Current Status
+      options:
+        - label: Researching
+        - label: Documenting
+        - label: Implementing
+        - label: In Review
+        - label: Blocked
+
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Anything else useful
+      placeholder: |
+        • Dependencies
+        • Risks
+        • Related issues
+        • Timeline notes
