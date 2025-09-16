@@ -92,6 +92,6 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:LoadImage DisplayName="Load Image" FileName="Data\cat.png" sap:VirtualizedContainerService.HintSize="450,118.5" sap2010:WorkflowViewState.IdRef="LoadImage_1" Image="[img]" />
     <aia:ConvertImage ContinueOnError="{x:Null}" ConvertToFormat="JPEG" ConvertedPath="." FileName="Test" sap:VirtualizedContainerService.HintSize="450,217.5" sap2010:WorkflowViewState.IdRef="ConvertImage_1" Image="[img]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,167" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;please, please, please, please, please, please, please, please, please, please, please, please, please, please, please, please, please, please, please , please, please, please, pleasgsfgfdfgse, please, please, please, please, please, please, please, please, please, please, pleasemnbnjmmkm bbbn ngnnggmnb nb hjhj   knjkjnjjnjkjnbj jjjj  &quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,167" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;please, please, please, please, please, please, please, please, please, please, please, please, please, please, please, please, please, please, please , please, please, please, pleasgsfgfdfgse, please, please, please, please, please, please, please, please, please, please, pleasemnbnjmmkm bnnbbn ngnnggmnb nb hjhj   knjkjnjjnjkjnbj jjjj  &quot;]" />
   </Sequence>
 </Activity>
