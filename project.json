@@ -4,7 +4,9 @@
   "description": "Blank Process",
   "main": "Main.xaml",
   "dependencies": {
-    "UiPath.System.Activities": "[25.8.0]"
+    "Accesa.ImageConverter.Activities": "[2.0.1]",
+    "UiPath.System.Activities": "[25.8.0]",
+    "UiPath.UIAutomation.Activities": "[25.10.13]"
   },
   "webServices": [],
   "entitiesStores": [],
@@ -38,7 +40,15 @@
     "processOptions": {
       "ignoredFiles": []
     },
-    "fileInfoCollection": [],
+    "fileInfoCollection": [
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "fb94f9d0-3354-413a-9e36-75bfeec008fc",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "TestCase.xaml"
+      }
+    ],
     "saveToCloud": false
   },
   "expressionLanguage": "VisualBasic",
